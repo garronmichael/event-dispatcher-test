@@ -41,6 +41,8 @@ Events.prototype.off = function(event, fn) {
 
   if (idx > -1) {
     this.events[event].callbacks.splice(idx, 1);
+    this.events[event].scopes.splice(idx, 1);
+
   }
 };
 
