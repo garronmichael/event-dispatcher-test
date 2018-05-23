@@ -13,15 +13,15 @@ describe('Event Dispatcher', function() {
         expect(typeof Events).toBe('function');
     });
 
-    xit('can register a callback', function() {
+    it('can register a callback', function() {
         events.on('foo', function() {});
     });
 
-    xit('can register a callback with a scope', function() {
+    it('can register a callback with a scope', function() {
         events.on('foo', function() {}, this);
     });
 
-    xit('can trigger an event', function() {
+    it('can trigger an event', function() {
         const listener = jasmine.createSpy('listener');
         events.on('foo', listener);
 
@@ -30,7 +30,7 @@ describe('Event Dispatcher', function() {
         expect(listener).toHaveBeenCalled();
     });
 
-    xit('can trigger an event registered with scope', function(done) {
+    it('can trigger an event registered with scope', function(done) {
         const scope = {};
 
         events.on('foo', function() {
@@ -41,7 +41,7 @@ describe('Event Dispatcher', function() {
         events.trigger('foo');
     });
 
-    xit('can trigger an event with arguments', function() {
+    it('can trigger an event with arguments', function() {
         const listener = jasmine.createSpy('listener');
         events.on('foo', listener);
 
@@ -50,7 +50,7 @@ describe('Event Dispatcher', function() {
         expect(listener).toHaveBeenCalledWith('bar', 'baz');
     });
 
-    xit('can trigger multiple callbacks on an event', function() {
+    it('can trigger multiple callbacks on an event', function() {
         const listener1 = jasmine.createSpy('listener1');
         const listener2 = jasmine.createSpy('listener2');
         events.on('foo', listener1);
@@ -62,7 +62,7 @@ describe('Event Dispatcher', function() {
         expect(listener2).toHaveBeenCalled();
     });
 
-    xit('can remove callbacks from an event', function() {
+    it('can remove callbacks from an event', function() {
         const listener = jasmine.createSpy('listener');
         events.on('foo', listener);
 
@@ -74,7 +74,7 @@ describe('Event Dispatcher', function() {
         expect(listener.calls.length).toBe(1);
     });
 
-    xit('can remove a specific callback from an event', function() {
+    it('can remove a specific callback from an event', function() {
         const listener1 = jasmine.createSpy('listener1');
         const listener2 = jasmine.createSpy('listener2');
         events.on('foo', listener1);
@@ -90,7 +90,7 @@ describe('Event Dispatcher', function() {
         expect(listener2.calls.length).toEqual(2);
     });
 
-    xit('can remove a specific callback registered with a scope from an event', function() {
+    it('can remove a specific callback registered with a scope from an event', function() {
         const listener1 = jasmine.createSpy('listener1');
         const listener2 = jasmine.createSpy('listener2');
 
